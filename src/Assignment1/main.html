@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
+</head>
+
+<body class="defaultBg">
+    <div class="page">
+        <div class="paper">
+            <a class="navItem" href='#' onclick="navigate(true)">Main</a>
+            <a class="navItem" href='#' onclick="navigate(false)">Cards</a>
+        </div>
+        <div id="main-page" class="paper">
+            Hey guys, my name is Truman and this is my very first project for CPSC455. Here, I am going to do a very simple card storage web app with a little twist in it!
+            Hope you guys enjoy my little invention.
+        </div>
+        <div id="card-page" class="paper">
+            <form>
+                <label for="name">Name</label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="image">Image Link</label><br>
+                <input type="text" id="image" name="image"><br>
+                <label for="description">Description</label><br>
+                <input type="text" id="description" name="description"> <br><br>
+                <input type="reset" value="Clear">
+                <button type="submit" onclick="addToList()">Submit</button>
+              </form>
+        </div>
+    </div>
+</body>
+
+</html>

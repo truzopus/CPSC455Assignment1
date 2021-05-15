@@ -1,0 +1,41 @@
+.defaultBg{
+    background-color: aquamarine;
+}
+
+.page{
+    width: 100%;
+    height: 100%;
+}
+
+.paper {
+    background-color: white;
+    margin-left: 100px; 
+    margin-right: 100px;
+    margin-top: 5vh;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.navItem {
+    padding-left: 100px;
+    padding-right: 100px;
+    word-wrap: normal;
+    color: blueviolet;
+    text-decoration: none;
+}
+
+#card-page {
+    display: none;
+    padding: 50px 100px;
+    height: auto;
+}
+
+#main-page {
+    background-color: black;
+    color: white;
+    font-size: 24;
+    padding: 50px 100px;
+}
