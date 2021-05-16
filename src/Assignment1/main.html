@@ -18,7 +18,7 @@
             Hope you guys enjoy my little invention.
         </div>
         <div id="card-page" class="paper">
-            <form>
+            <form class="form">
                 <label for="name">Name</label><br>
                 <input type="text" id="name" name="name"><br>
                 <label for="image">Image Link</label><br>
@@ -26,12 +26,13 @@
                 <label for="description">Description</label><br>
                 <input type="text" id="description" name="description"> <br><br>
                 <input type="reset" value="Clear">
-                <button type="button" onclick="addToList()">Submit</button>
+                <button type="button" onclick="addToList(true)">Submit to Front</button>
+                <button type="button" onclick="addToList()">Submit to Back</button>
             </form>
             <table id="card-list" border="3">
                 <thead>
                     <th>Name</th>
-                    <th>Image</th>
+                    <th class="image">Image</th>
                     <th>Description</th>
                     <th>Delete </th>
                 </thead>

@@ -36,6 +36,23 @@
   display: none;
   padding: 50px 100px;
   height: auto;
+  background-color: lightskyblue;
+}
+
+.form {
+  padding-bottom: 50px;
+}
+
+#card-list {
+  height: auto;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  max-width: 50%;
+  max-height: 50%;
 }
 
 #main-page {
