@@ -33,7 +33,7 @@
 }
 
 #card-page {
-  display: none;
+  display: block;
   padding: 50px 100px;
   height: auto;
   background-color: lightskyblue;
@@ -41,6 +41,16 @@
 
 .form {
   padding-bottom: 50px;
+}
+
+.clearButton {
+  padding-top: 50px;
+}
+
+.button {
+  width: auto;
+  padding: 15px 15px;
+  display: inline-block;
 }
 
 #card-list {
@@ -56,6 +66,7 @@ img {
 }
 
 #main-page {
+  display: none;
   background-color: black;
   color: white;
   font-size: 24;

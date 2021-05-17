@@ -13,8 +13,7 @@ function navigate(bool) {
     }
 }
 
-function deleteRow(currentRow) {
-    index = currentRow.rowIndex;
+function deleteRow(index) {
     document.getElementById("card-list").deleteRow(index);
 }
 
@@ -33,7 +32,7 @@ function insertListItem(name, url, description, bool) {
     cell1.innerHTML = name;
     cell2.innerHTML = "<img alt=URL Invalid src=" + url + ">"
     cell3.innerHTML = description;
-    cell4.innerHTML = "<button type=button onclick=deleteRow(this.parentNode.parentNode)>Delete</button>"
+    cell4.innerHTML = "<button type=button onclick=deleteRow(this.parentNode.parentNode.rowIndex)>Delete</button>"
 }
 
 function clearInputs() {
@@ -48,6 +47,14 @@ function addToList(bool = false) {
     const description = document.getElementById("description").value;
     insertListItem(name, url, description, bool);
     clearInputs();
+}
+
+function clearList() {
+    const table = document.getElementById("card-list");
+    const rowCount = table.rows.length;
+    for (i = 1; i < rowCount; i++) {
+        deleteRow(1);
+    }
 }
 
 function loadList() {

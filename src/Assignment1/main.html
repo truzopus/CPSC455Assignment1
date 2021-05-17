@@ -25,9 +25,9 @@
                 <input type="text" id="image" name="image"><br>
                 <label for="description">Description</label><br>
                 <input type="text" id="description" name="description"> <br><br>
-                <input type="reset" value="Clear">
-                <button type="button" onclick="addToList(true)">Submit to Front</button>
-                <button type="button" onclick="addToList()">Submit to Back</button>
+                <input type="reset" class="button" value="Clear">
+                <button type="button" class="button" onclick="addToList(true)">Submit to Front</button>
+                <button type="button" class="button" onclick="addToList()">Submit to Back</button>
             </form>
             <table id="card-list" border="3">
                 <thead>
@@ -39,6 +39,9 @@
                 <tbody id="card-body">
                 </tbody>
             </table>
+            <div class="clearButton">
+                <button class="button" type="button" onclick="clearList()">Clear List</button>
+            </div>
         </div>
     </div>
 </body>
