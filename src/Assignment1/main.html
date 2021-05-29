@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
+</head>
+
+<body class="defaultBg">
+    <div class="page">
+        <div class="paper">
+            <a class="navItem" href='#' onclick="navigate(true)">Main</a>
+            <a class="navItem" href='#' onclick="navigate(false)">Cards</a>
+        </div>
+        <div id="main-page" class="paper">
+            Hey guys, my name is Truman and this is my very first project for CPSC455. Here, I am going to do a very
+            simple card storage web app with a little twist in it!
+            Hope you guys enjoy my little invention.
+        </div>
+        <div id="card-page" class="paper">
+            <form class="form">
+                <label for="name">Name</label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="image">Image Link</label><br>
+                <input type="text" id="image" name="image"><br>
+                <label for="description">Description</label><br>
+                <input type="text" id="description" name="description"> <br><br>
+                <input type="reset" class="button" value="Clear">
+                <button type="button" class="button" onclick="addToList(true)">Submit to Front</button>
+                <button type="button" class="button" onclick="addToList()">Submit to Back</button>
+            </form>
+            <table id="card-list" border="3">
+                <thead>
+                    <th>Name</th>
+                    <th class="image">Image</th>
+                    <th>Description</th>
+                    <th>Delete </th>
+                </thead>
+                <tbody id="card-body">
+                </tbody>
+            </table>
+            <div class="clearButton">
+                <button class="button" type="button" onclick="clearList()">Clear List</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
