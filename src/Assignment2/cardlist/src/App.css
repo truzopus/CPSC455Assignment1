@@ -1,38 +1,100 @@
-.App {
+.page {
+  background-color: aquamarine;
+  margin-top: -40px;
+}
+
+.paper {
+  background-color: white;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 5vh;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navItem {
+  padding-left: 100px;
+  padding-right: 100px;
+  word-wrap: normal;
+  color: blueviolet;
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.listImage {
+  height: 100px;
+  width: 100px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#card-page {
+  display: block;
+  padding: 50px 100px;
+  height: auto;
+  background-color: lightskyblue;
+}
+
+.form {
+  padding-bottom: 50px;
+}
+
+.clearButton {
+  padding-top: 50px;
+}
+
+.button {
+  width: auto;
+  padding: 15px 15px;
+  display: inline-block;
+  margin-left: 15px;
+  margin-left: 15px;
+}
+
+.card-list {
+  height: auto;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  max-width: 50%;
+  max-height: 50%;
+}
+
+.main {
+  background-color: darkred;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 100px;
+  margin-top: 50px;
+  height: 200px;
   display: flex;
-  flex-direction: column;
+  color: blue;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.description {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  height: auto;
+  width: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.specificcard {
+  height: auto;
+  width: auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: rebeccapurple;
+  margin-left: 100px;
+  margin-top: 50px;
+}
+
+.validation {
+  color: red;
 }
