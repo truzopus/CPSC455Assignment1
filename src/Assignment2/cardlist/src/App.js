@@ -9,7 +9,7 @@ function App() {
   const [card, renderCardDescription] = useState('');
   const renderCard = () => {
     if (card) {
-      return <SpecificCard card={card} />
+      return <SpecificCard cardName={card} />
     }
     return <CardList renderCardDescription={renderCardDescription} />
   }
