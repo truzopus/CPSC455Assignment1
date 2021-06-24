@@ -1,8 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './App.css';
 
-const jsonList = JSON.stringify([{ "name": "cat", "description": "fluffy white cat", "url": "https://www.thesprucepets.com/thmb/wWZ_Mympqnlq6hUbrnK6p2wIERk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/twenty20_e47b3798-dd9b-40b1-91ef-1d820337966e-5aa3f798642dca00363b0df1.jpg" },
-{ "name": "black dog", "description": "3000 dollar dog", "url": "https://www.sritch.com/images/dogs-vancouver-20141108-0574.jpg" }]);
+async function addCard(data, setCard) {
+    fetch('http://localhost:3001/cards', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    }).then(res => res.text()).then(res => setCard(JSON.parse(res)));
+}
+
+async function deleteCard(setCard, name) {
+    fetch(`http://localhost:3001/cards/${name}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }).then(res => res.text()).then(res => setCard(JSON.parse(res)));
+}
 
 function CardPage(props) {
     const [nameValidation, setNameValidation] = useState('');
@@ -10,7 +26,11 @@ function CardPage(props) {
     const [name, setName] = useState('');
     const [url, setUrl] = useState('');
     const [description, setDescription] = useState('');
-    const [cards, setCard] = useState(JSON.parse(jsonList));
+    const [cards, setCard] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:3001/cards").then(res => res.text()).then(res => setCard(JSON.parse(res)));
+    }, []);
 
     const customValidation = () => {
         let failed = false;
@@ -40,7 +60,7 @@ function CardPage(props) {
                 <label id="description">Description</label><br />
                 <input type="text" id="description" value={description} onChange={(event) => setDescription(event.target.value)} /> <br /><br />
                 <input type="reset" className="button" value="Clear" onClick={() => { setName(''); setUrl(''); setDescription(''); setUrlValidation(''); setNameValidation('') }} />
-                <button type="button" className="button" onClick={(e) => customValidation() ? e.preventDefault() : setCard(cards.concat([{ name: name, url: url, description: description }]))}>Submit</button>
+                <button type="button" className="button" onClick={(e) => customValidation() ? e.preventDefault() : addCard({ name: name, url: url, description: description }, setCard)}>Submit</button>
             </form>
             <table id="card-list" border="3">
                 <thead>
@@ -53,9 +73,9 @@ function CardPage(props) {
                 <tbody id="card-body">
                     {cards.map((card, index) => (
                         <tr key={index}>
-                            <td onClick={() => props.renderCardDescription(card)}>{card.name}</td>
-                            <td><img alt="URL Invalid" src={card.url} onClick={() => props.renderCardDescription(card)} /></td>
-                            <td><button type="button" onClick={() => setCard(cards.filter(c => c.name !== card.name))}> Delete </button></td>
+                            <td onClick={() => props.renderCardDescription(card.name)}>{card.name}</td>
+                            <td><img alt="URL Invalid" src={card.url} onClick={() => props.renderCardDescription(card.name)} /></td>
+                            <td><button type="button" onClick={() => deleteCard(setCard, card.name)}> Delete </button></td>
                         </tr>
                     ))}
                 </tbody>
