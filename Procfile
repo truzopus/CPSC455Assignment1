@@ -1,1 +1,0 @@
-web: ./src/Assignment2/cardlist/Assignment3/bin/www npm start
