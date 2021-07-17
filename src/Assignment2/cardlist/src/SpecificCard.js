@@ -7,7 +7,7 @@ function SpecificCard(props) {
     const [card, setCard] = useState('');
 
     useEffect(() => {
-        fetch(`http://localhost:3001/cards/${props.cardName}`).then(res => res.text()).then(res => setCard(JSON.parse(res)));
+        fetch(`https://cpsc455assignment.herokuapp.com/cards/${props.cardName}`).then(res => res.text()).then(res => setCard(JSON.parse(res)));
     }, [props.cardName]);
 
     return (
