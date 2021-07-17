@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.disable('etag');
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, '../build')));
 app.use(cors());
 app.options('*', cors());
 
@@ -43,7 +43,7 @@ app.use(function (err, req, res, next) {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "../build", "index.html"));
 });
 
 module.exports = app;

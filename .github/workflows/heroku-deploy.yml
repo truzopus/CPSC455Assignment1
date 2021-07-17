@@ -1,0 +1,12 @@
+jobs:
+  heroku-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: f9346783-09ef-46fd-bbd7-88341f396b01
+          heroku_app_name: cpsc455assignment
+          heroku_email: truman_zhen@hotmail.com
