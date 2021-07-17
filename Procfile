@@ -1,0 +1,1 @@
+web: ./src/Assignment2/cardlist/Assignment3 DEBUG=Assignment3:* npm start
