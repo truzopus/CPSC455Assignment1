@@ -80,9 +80,6 @@ function CardPage(props) {
                     ))}
                 </tbody>
             </table>
-            <div className="clearButton">
-                <button className="button" type="button" onClick={() => setCard([])}>Clear List</button>
-            </div>
         </div>
     )
 }

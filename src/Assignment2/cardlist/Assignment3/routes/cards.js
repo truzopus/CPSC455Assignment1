@@ -1,30 +1,60 @@
 var express = require('express');
 var router = express.Router();
+const { MongoClient } = require("mongodb");
+const uri = "mongodb+srv://m001-student:m001-mongodb-basics@sandbox.3zspm.mongodb.net/Assignment4?retryWrites=true&w=majority";
 
-
-var list = [{ "name": "cat", "description": "fluffy white cat", "url": "https://www.thesprucepets.com/thmb/wWZ_Mympqnlq6hUbrnK6p2wIERk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/twenty20_e47b3798-dd9b-40b1-91ef-1d820337966e-5aa3f798642dca00363b0df1.jpg" },
-{ "name": "black dog", "description": "3000 dollar dog", "url": "https://www.sritch.com/images/dogs-vancouver-20141108-0574.jpg" }];
-
-router.get('/', function (req, res, next) {
-  res.send(list);
+router.get('/', async function (req, res, next) {
+  const client = new MongoClient(uri, { useUnifiedTopology: true, useNewUrlParser: true });
+  try {
+    await client.connect();
+    const cardsList = await client.db('Assignment4').collection('Cards').find();
+    let result = [];
+    await cardsList.forEach(card => result.push(card));
+    res.send(result);
+  } finally {
+    client.close()
+  }
 });
 
-router.get('/:name', function (req, res, next) {
+router.get('/:name', async function (req, res, next) {
   const name = req.params.name;
-  const card = list.find(x => x.name === name);
-  res.send(card);
+  const client = new MongoClient(uri, { useUnifiedTopology: true, useNewUrlParser: true });
+  try {
+    await client.connect();
+    const card = await client.db('Assignment4').collection('Cards').findOne({ name: name });
+    res.send(card);
+  } finally {
+    client.close()
+  }
 });
 
-router.post('/', function (req, res, next) {
-  const card = req.body;
-  list.push(card);
-  res.send(list);
+router.post('/', async function (req, res, next) {
+  const client = new MongoClient(uri, { useUnifiedTopology: true, useNewUrlParser: true });
+  try {
+    await client.connect();
+    await client.db('Assignment4').collection('Cards').insertOne(req.body);
+    const cardsList = await client.db('Assignment4').collection('Cards').find();
+    let result = [];
+    await cardsList.forEach(card => result.push(card));
+    res.send(result);
+  } finally {
+    client.close()
+  }
 });
 
-router.delete('/:name', function (req, res, next) {
+router.delete('/:name', async function (req, res, next) {
   const name = req.params.name;
-  list = list.filter(x => x.name !== name);
-  res.send(list);
+  const client = new MongoClient(uri, { useUnifiedTopology: true, useNewUrlParser: true });
+  try {
+    await client.connect();
+    await client.db('Assignment4').collection('Cards').deleteOne({ name: name });
+    const cardsList = await client.db('Assignment4').collection('Cards').find();
+    let result = [];
+    await cardsList.forEach(card => result.push(card));
+    res.send(result);
+  } finally {
+    client.close()
+  }
 });
 
 module.exports = router;
