@@ -1,6 +1,7 @@
 {
     "scripts": {
       "heroku-prebuild": "cd src/Assignment2/cardlist && npm install && npm run build && cd Assignment3 && npm install",
-      "start": "cd src/Assignment2/cardlist && npm start"
+      "start": "cd src/Assignment2/cardlist && npm start",
+      "postinstall" : "cd src/Assignment2/cardlist/Assignment3 && DEBUG=Assignment3:* npm start"
     }
   }
