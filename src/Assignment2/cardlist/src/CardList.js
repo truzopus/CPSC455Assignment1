@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import './App.css';
 
 async function addCard(data, setCard) {
-    fetch('http://localhost:3001/cards', {
+    fetch('https://cpsc455assignment.herokuapp.com/cards', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -12,7 +12,7 @@ async function addCard(data, setCard) {
 }
 
 async function deleteCard(setCard, name) {
-    fetch(`http://localhost:3001/cards/${name}`, {
+    fetch(`https://cpsc455assignment.herokuapp.com/cards/${name}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ function CardPage(props) {
     const [cards, setCard] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:3001/cards").then(res => res.text()).then(res => setCard(JSON.parse(res)));
+        fetch("https://cpsc455assignment.herokuapp.com/cards").then(res => res.text()).then(res => setCard(JSON.parse(res)));
     }, []);
 
     const customValidation = () => {
